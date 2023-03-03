@@ -1,0 +1,112 @@
+;
+; AssemblerApplication3.asm
+;
+; Created: 2/14/2023 1:06:40 PM
+; Author : Networklab01
+;
+
+
+; Replace with your application code
+start:
+/*    LDI	R16, 0x25
+	LDI R17, 0x19
+	Add R16, R17
+	LDI R17, 0xA6
+	Add R22,R16
+	Add R22,R17*/
+
+/*	LDI R16, 55
+	LDI R17, 95
+	LDI R18, 18
+	NEG R17
+	ADD R16,R17
+	ADD R22,R16
+	ADD R22,R18*/
+
+/*	LDI R16, 0x23
+	LDI R17, 0xD9
+	LDI R18, 0xFF
+	ADD R22, R16
+	ADD R22, R17
+	ADD R22, R18
+
+	LDI R16, 0x1A
+	LDI R17, 0x24
+	LDI R18, 0x03
+	ADC R23, R16
+	ADC R23, R17
+	ADC R23, R18*/
+
+	
+/*	LDI R16, 0xFF
+	OUT DDRD, R16
+
+	SEC
+	LDI R16, 0
+AGAIN:
+	OUT PORTD, R16
+	ROL R16
+	CALL DELAY
+	RJMP AGAIN
+
+DELAY: 
+	LDI R17, 200
+L1: LDI R18, 128
+L2: LDI R19, 128
+
+L3: NOP
+	NOP
+
+	DEC R19
+	BRNE L3
+	DEC R18
+	BRNE L2
+	DEC R17
+	BRNE L1
+	RET */
+
+	/*LDI R16, 0xFF
+	OUT DDRD, R16
+
+	CLC
+	LDI R16, 0x80
+
+
+AGAIN:
+	OUT PORTD, R16
+	CALL DELAY
+
+RR: 
+	ROR R16
+	BRCS RR
+	RJMP AGAIN
+
+
+DELAY: 
+	LDI R17, 200
+L1: LDI R18, 128
+L2: LDI R19, 128
+
+L3: NOP
+	NOP
+
+	DEC R19
+	BRNE L3
+	DEC R18
+	BRNE L2
+	DEC R17
+	BRNE L1
+	RET
+*/
+
+
+	
+	
+  
+
+	
+
+
+	
+
+
