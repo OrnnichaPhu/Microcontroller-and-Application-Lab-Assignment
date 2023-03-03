@@ -8,7 +8,7 @@
 
 ; Replace with your application code
 start:
-/*    LDI	R16, 0x25
+/*      LDI R16, 0x25
 	LDI R17, 0x19
 	Add R16, R17
 	LDI R17, 0xA6
@@ -51,12 +51,11 @@ AGAIN:
 
 DELAY: 
 	LDI R17, 200
-L1: LDI R18, 128
-L2: LDI R19, 128
+	L1: LDI R18, 128
+	L2: LDI R19, 128
 
-L3: NOP
+L3: 	NOP
 	NOP
-
 	DEC R19
 	BRNE L3
 	DEC R18
@@ -84,12 +83,10 @@ RR:
 
 DELAY: 
 	LDI R17, 200
-L1: LDI R18, 128
-L2: LDI R19, 128
-
-L3: NOP
+	L1: LDI R18, 128
+	L2: LDI R19, 128
+	L3: NOP
 	NOP
-
 	DEC R19
 	BRNE L3
 	DEC R18
