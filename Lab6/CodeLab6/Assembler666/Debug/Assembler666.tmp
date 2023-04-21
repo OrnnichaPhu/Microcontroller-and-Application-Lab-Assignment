@@ -1,0 +1,31 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega328P"</DEVICE>
+ <WORKING_DIR>C:\Users\Networklab01\Desktop\Assembler666\Assembler666\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\Networklab01\Desktop\Assembler666\Assembler666\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m328Pdef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\Networklab01\Desktop\Assembler666\Assembler666\Debug\Assembler666.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Assembler666.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>Assembler666.map</FILE>
+  <FILE>Assembler666.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <LOOP><FILE>C:\Users\Networklab01\Desktop\Assembler666\Assembler666\main.asm</FILE><LINE>151</LINE></LOOP>
+  <HERE1><FILE>C:\Users\Networklab01\Desktop\Assembler666\Assembler666\main.asm</FILE><LINE>155</LINE></HERE1>
+  <DELAY><FILE>C:\Users\Networklab01\Desktop\Assembler666\Assembler666\main.asm</FILE><LINE>169</LINE></DELAY>
+  <HERE2><FILE>C:\Users\Networklab01\Desktop\Assembler666\Assembler666\main.asm</FILE><LINE>163</LINE></HERE2>
+  <AGAIN><FILE>C:\Users\Networklab01\Desktop\Assembler666\Assembler666\main.asm</FILE><LINE>179</LINE></AGAIN>
+ </LABELS>
+</ASSEMBLER_INFO>
