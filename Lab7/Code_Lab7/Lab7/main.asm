@@ -1,0 +1,291 @@
+;
+; Lab7.asm
+;
+; Created: 3/21/2023 1:02:56 PM
+; Author : Networklab01
+;
+
+
+; Replace with your application code
+/*	.org 0x0
+		 jMP Main
+	.org 0x20
+		 JMP T0_OV_ISR
+
+	;Start the main program
+	.org 0x100
+	Main: 
+		 LDI R16, HIGH(RAMEND)
+		 OUT SPH, R16
+		 LDI R16, LOW(RAMEND)
+		 OUT SPL, R16
+
+		 CALL PIN_SETUP
+		 LDI R16, (1<<TOIE0)
+		 STS TIMSK0, R16
+		 SEI
+		 CALL TIMER0_SETUP
+		 LDI R21, 200
+
+
+	LOOP:
+		 SBIC PIND, 4
+		 RJMP L_OFF
+		 RJMP L_ON
+	L_OFF:
+		 CBI PORTB, 0
+		 RJMP LOOP
+	L_ON:
+		 SBI PORTB, 0
+		 RJMP LOOP
+
+	PIN_SETUP:
+		 SBI DDRB, 0
+		 CBI PORTB, 0
+		 SBI DDRB, 1
+		 CBI PORTB, 1
+		 CBI DDRD, 4
+		 SBI PORTD, 4
+		 RET
+
+	TIMER0_SETUP:
+		 LDI R20, 177
+		 OUT TCNT0, R20
+		 LDI R20, 0x00
+		 OUT TCCR0A, R20
+		 LDI R20, 0x05
+		 OUT TCCR0B, R20
+		 RET
+
+	.org 0x200
+	T0_OV_ISR:
+		 DEC R21
+		 BRNE HERE
+		 LDI R21, 200
+		 IN R17, PORTB
+		 LDI R18, (1<<1)
+		 EOR R17, R18
+		 OUT PORTB, R17
+	HERE:
+		 LDI R18, 177
+		 OUT TCNT0, R18
+		 RETI*/
+		
+
+
+		/*.org 0x0
+		 jMP Main
+		.org 0x02
+		 JMP INT0_ISR
+
+	;Start the main program
+	.org 0x100
+	Main: 
+		 LDI R16, HIGH(RAMEND)
+		 OUT SPH, R16
+		 LDI R16, LOW(RAMEND)
+		 OUT SPL, R16
+
+		 CALL PIN_SETUP
+		 LDI R16, (1<<INT0)
+		 out EIMSK, R16
+		 LDI R16, (1<<ISC01)
+		 STS EICRA, R16
+		 SEI
+		 
+	LOOP:
+		 SBIC PIND, 4
+		 RJMP L_OFF
+		 RJMP L_ON
+	L_OFF:
+		 CBI PORTB, 0
+		 RJMP LOOP
+	L_ON:
+		 SBI PORTB, 0
+		 RJMP LOOP
+
+	PIN_SETUP:
+		 SBI DDRB, 0
+		 CBI PORTB, 0
+		 SBI DDRB, 1
+		 CBI PORTB, 1
+		 CBI DDRD, 4
+		 SBI PORTD, 4
+		 SBI PORTD, 2
+		 RET
+
+
+	.org 0x200
+	INT0_ISR:
+		 IN R17, PORTB
+		 LDI R18, (1<<1)
+		 EOR R17, R18
+		 OUT PORTB, R17
+		 RETI*/
+
+
+
+
+
+		/*.org 0x0
+		 jMP Main
+		.org 0x08
+		 JMP PCINT8_ISR
+
+	;Start the main program
+	.org 0x100
+	Main: 
+		 LDI R16, HIGH(RAMEND)
+		 OUT SPH, R16
+		 LDI R16, LOW(RAMEND)
+		 OUT SPL, R16
+
+		 CALL PIN_SETUP
+		 LDI R16, (1<<PCIE1)
+		 STS PCICR, R16
+		 LDI R16, 0x01
+		 STS PCMSK1, R16
+		 SEI
+		 LDI R20, 2
+		 
+	LOOP:
+		 SBIC PIND, 4
+		 RJMP L_OFF
+		 RJMP L_ON
+	L_OFF:
+		 CBI PORTB, 0
+		 RJMP LOOP
+	L_ON:
+		 SBI PORTB, 0
+		 RJMP LOOP
+
+	PIN_SETUP:
+		 SBI DDRB, 0
+		 CBI PORTB, 0
+		 SBI DDRB, 1
+		 CBI PORTB, 1
+		 CBI DDRD, 4
+		 SBI PORTD, 4
+		 SBI PORTC, 0
+		 RET
+
+
+	.org 0x200
+	PCINT8_ISR:
+		 DEC R20
+		 BRNE HERE
+		 IN R17, PORTB
+		 LDI R18, (1<<1)
+		 EOR R17, R18
+		 OUT PORTB, R17
+		 LDI R20, (1<<1)
+	HERE:RETI*/
+
+		
+/*
+		.org 0x0
+		 jMP Main
+		 
+		 .org 0x04
+		 JMP INT1_ISR
+		 
+		.org 0x0A
+		 JMP PCINT8_ISR
+
+		.org 0x20
+		 JMP T0_OV_ISR
+		 
+
+	;Start the main program
+	.org 0x100
+	Main: 
+		 LDI R16, HIGH(RAMEND)
+		 OUT SPH, R16
+		 LDI R16, LOW(RAMEND)
+		 OUT SPL, R16
+
+		 CALL PIN_SETUP
+		 LDI R16, (1<<TOIE0)
+		 STS TIMSK0, R16
+		 SEI
+		 CALL TIMER0_SETUP
+		 LDI R21, 178
+
+		 LDI R16, (1<<INT1)
+		 out EIMSK, R16
+		 LDI R16, (1<<ISC11)
+		 STS EICRA, R16
+		 
+		 LDI R16, (1<<PCIE2)
+		 STS PCICR, R16
+		 LDI R16, 0x20
+		 STS PCMSK2, R16
+		 SEI
+		 LDI R20, 2
+		 
+		 SEI
+
+	LOOP:
+		 SBIC PIND, 4
+		 RJMP L_OFF
+		 RJMP L_ON
+	L_OFF:
+		 CBI PORTB, 0
+		 RJMP LOOP
+	L_ON:
+		 SBI PORTB, 0
+		 RJMP LOOP
+
+	PIN_SETUP:
+		 SBI DDRB, 0
+		 CBI PORTB, 0
+		 SBI DDRB, 1
+		 CBI PORTB, 1
+		 CBI DDRD, 4
+		 SBI PORTD, 4
+		 RET
+
+	TIMER0_SETUP:
+		 LDI R20, 177
+		 OUT TCNT0, R20
+		 LDI R20, 0x00
+		 OUT TCCR0A, R20
+		 LDI R20, 0x05
+		 OUT TCCR0B, R20
+		 RET
+
+	.org 0x200
+	T0_OV_ISR:
+		 DEC R21
+		 BRNE HERE
+		 LDI R21, 200
+		 IN R17, PORTB
+		 LDI R18, (1<<3)
+		 EOR R17, R18
+		 OUT PORTB, R17
+	HERE:
+		 LDI R18, 178
+		 OUT TCNT0, R18
+		 RETI
+	.org 0x300
+	INT1_ISR:
+		 IN R17, PORTB
+		 LDI R18, (1<<1)
+		 EOR R17, R18
+		 OUT PORTB, R17
+		 RETI
+		 .org 0x400
+	PCINT8_ISR:
+		 DEC R20
+		 BRNE HERE2
+		 IN R17, PORTB
+		 LDI R18, (1<<2)
+		 EOR R17, R18
+		 OUT PORTB, R17
+		 LDI R20, 2
+	HERE2: RETI
+*/
+
+
+
+
