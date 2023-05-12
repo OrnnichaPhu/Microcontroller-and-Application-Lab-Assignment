@@ -2,7 +2,7 @@
 #include<avr/interrupt.h>
 
 /*Quiz1 Morning Section*/
-int check=o; unsigned char y = 200; unsigned charz=2; intarm=0;
+int check=o; unsigned char y = 200; unsigned charz=2; int num=0;
 
 unit8_i segment[] = {
 0b01111101, //6
